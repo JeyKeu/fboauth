@@ -1,0 +1,7 @@
+﻿@if(Request.IsAuthenticated) {
+    <text>Welcome <strong>@User.Identity.Name <img src="https://graph.facebook.com/@User.Identity.Name/picture"/></strong>!
+    [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
+}
+else {
+    @:[ <a href="@Application.Models.Constants.GetFacebookLoginUrl(Request["returnUrl"])">Login</a> ]
+}
